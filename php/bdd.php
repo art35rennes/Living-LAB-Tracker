@@ -19,6 +19,24 @@
     ****INSERTION DANS LA BASE****
     *****************************/
 
+    /***************************\
+    * Type de donnee:           *
+    *   1 - CO2                 *
+    *   2 - Temperature         *
+    *   3 - Humidite            *
+    *   4 - Four                *
+    *   5 - Chute               *
+    *   6 - Pas                 *
+    *   7 -                     *
+    *                           *
+    * Type de contact:          *
+    *   1 - mail                *
+    *   2 - sms                 *
+    *   3 - mail et sms         *
+    *   4 - Samu et sms         *
+    *   5 - mail puis sms       *
+    \***************************/
+
     function AddUser($Nom, $Type, $Mail, $Sms, $Password){
         str_replace($arrayToReplace, $arrayReplaceWith, $Nom);
 
@@ -40,7 +58,7 @@
     }
 
     function AddQui($IDLieu, $IDPersonne){
-        $sql = "INSERT INTO DONNEE (ID_LIEU, ID_UTILISATEUR) VALUES ($IDLieu, $IDPersonne)";
+        $sql = "INSERT INTO QUI (ID_LIEU, ID_UTILISATEUR) VALUES ($IDLieu, $IDPersonne)";
         global $conn;
         $conn->query($sql);
     }
@@ -52,7 +70,7 @@
     }
 
     function AddAlertes($IDLieu, $TypeContact, $TypeDonnee, $SeuilH, $SeuilB=NULL, $SeuilC=NULL){
-        $sql = "INSERT INTO UTILISATEUR (ID_LIEU, SEUIL_CRITIQUE, SEUIL_HAUT, SEUIL_BAS, TYPE_CONTACT, TYPE_DONNEE) VALUES ($IDLieu, $SeuilC, $SeuilH, $SeuilB, $SeuilC, $TypeDonnee)";
+        $sql = "INSERT INTO ALERTES (ID_LIEU, SEUIL_CRITIQUE, SEUIL_HAUT, SEUIL_BAS, TYPE_CONTACT, TYPE_DONNEE) VALUES ($IDLieu, $SeuilC, $SeuilH, $SeuilB, $TypeContact, $TypeDonnee)";
         global $conn;
         $conn->query($sql);
     }

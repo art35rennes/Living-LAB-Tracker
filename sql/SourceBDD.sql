@@ -21,7 +21,7 @@ drop table if exists UTILISATEUR;
 /*==============================================================*/
 create table ALERTES
 (
-   ID_ALERTES           int not null,
+   ID_ALERTES           int not null auto_increment,
    ID_LIEU              int not null,
    SEUIL_CRITIQUE       float,
    SEUIL_HAUT           float,
@@ -36,7 +36,7 @@ create table ALERTES
 /*==============================================================*/
 create table DONNEE
 (
-   ID_DONNEE            int not null,
+   ID_DONNEE            int not null auto_increment,
    ID_LIEU              int not null,
    VALEUR_DONNEE        double,
    TYPE_DONNEE          int,
@@ -48,7 +48,7 @@ create table DONNEE
 /*==============================================================*/
 create table LIEU
 (
-   ID_LIEU              int not null,
+   ID_LIEU              int not null auto_increment,
    NOM_LIEU             text,
    primary key (ID_LIEU)
 );
@@ -78,7 +78,7 @@ create table SUPERVISE
 /*==============================================================*/
 create table UTILISATEUR
 (
-   ID_UTILISATEUR       int not null,
+   ID_UTILISATEUR       int not null auto_increment,
    NOM_UTILISATEUR      text,
    TYPE_UTILISATEUR     int,
    CONTACT_MAIL         text,
